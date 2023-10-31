@@ -77,6 +77,7 @@ const DocumentViewer = () => {
                     mt: '4px',
                     width: 400,
                     flexGrow: 1,
+                    overflowY: 'auto'
                 }}>
                     <List sx={{ overflow: 'auto' }}>
                         {documents.map((item) => (

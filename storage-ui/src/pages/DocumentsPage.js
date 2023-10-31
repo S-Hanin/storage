@@ -61,12 +61,14 @@ function DocumentsPage() {
                 <Panel
                     subheader="Проекты"
                     items={projects}
-                    onItemClick={handleProjectClick} />
+                    onItemClick={handleProjectClick}
+                    width={150} />
 
                 <Panel
                     subheader="Документы"
                     items={documents}
-                    onItemClick={handleDocumentClick} />
+                    onItemClick={handleDocumentClick}
+                    width={250} />
 
                 {/* <DocumentViewer documentUrl={selectedDocument ? `http://localhost:8080/documents/download/${selectedDocument.name}`: null} /> */}
 

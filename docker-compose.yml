@@ -17,11 +17,11 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - ./docker-env/storage-back.env
+      - ~/storage-app/docker-env/storage-back.env
     ports:
       - "8080:8080"
     volumes:
-      - "./files:/app/files"
+      - "~/files:/app/files"
     depends_on:
       - db
 
@@ -30,7 +30,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - ./docker-env/postgresql.env
+      - ~/storage-app/docker-env/postgresql.env
     volumes:
       - pgdb-data:/var/lib/postgresql/data
     healthcheck:

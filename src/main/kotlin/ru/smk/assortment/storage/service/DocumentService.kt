@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
 import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith
-import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import ru.smk.assortment.storage.controller.dto.UploadDocumentFileRq
@@ -34,7 +33,7 @@ class DocumentService(
                 Document().also { it.name = documentName },
                 ExampleMatcher.matching()
                     .withMatcher("name", startsWith().ignoreCase())
-            ), PageRequest.of(0, 10)
+            )
         ).toList()
     }
 

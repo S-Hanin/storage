@@ -62,7 +62,7 @@ function DocumentsPage() {
                     subheader="Проекты"
                     items={projects}
                     onItemClick={handleProjectClick}
-                    width={150} />
+                    width={200} />
 
                 <Panel
                     subheader="Документы"

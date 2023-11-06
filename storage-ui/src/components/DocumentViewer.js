@@ -85,12 +85,29 @@ const DocumentViewer = () => {
                                 <ListItem key={item.id}>
                                     <ListItemButton onClick={() => setUrl(getDocumentPath(item))}>
                                         <ListItemText
-                                            primaryTypographyProps={{ variant: 'body1'}}
+                                            primaryTypographyProps={{
+                                                style: {
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    fontSize: '9pt'
+                                                }
+                                            }}
                                             primary={`${item.name} ${item.description}`}
                                             secondary={
                                                 <>
-                                                    <Typography variant='body2'>{`Автор: ${item.createdBy}`}</Typography>
-                                                    <Typography variant='body2'>{`Дата создания: ${new Date(item.createdAt).toLocaleString()}`}</Typography>
+                                                    <Typography sx={{
+                                                        whiteSpace: 'nowrap',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis',
+                                                        fontSize: '8pt'
+                                                    }}>{`Автор: ${item.createdBy}`}</Typography>
+                                                    <Typography sx={{
+                                                        whiteSpace: 'nowrap',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis',
+                                                        fontSize: '8pt'
+                                                    }}>{`Дата создания: ${new Date(item.createdAt).toLocaleString()}`}</Typography>
                                                 </>
                                             }>
                                         </ListItemText>

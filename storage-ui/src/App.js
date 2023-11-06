@@ -22,10 +22,24 @@ const theme = createTheme({
         }
       }
     },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          padding: 4
+        }
+      }
+    },
     MuiListItem: {
       styleOverrides: {
         root: {
           padding: '0px',
+        }
+      }
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        root: {
+          margin: '2px',
         }
       }
     }

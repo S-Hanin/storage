@@ -1,0 +1,1 @@
+export const DOCUMENT_SERVICE_URL = "http://192.168.1.195:8080";

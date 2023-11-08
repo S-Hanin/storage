@@ -2,7 +2,7 @@
 
 --changeset author:snkhanin
 create table projects (
-    id serial primary key,
+    id bigserial primary key,
     name varchar(255) not null
 )
 --rollback drop table projects

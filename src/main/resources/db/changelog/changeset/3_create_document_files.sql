@@ -2,8 +2,8 @@
 
 --changeset author:snkhanin
 create table document_files (
-    id serial primary key,
-    document_id serial not null,
+    id bigserial primary key,
+    document_id bigserial not null,
     link varchar(1024) unique not null,
     hash varchar(1024) unique not null,
     created_by varchar(1024) not null,

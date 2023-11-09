@@ -19,7 +19,8 @@ class DocumentController(
     val getDocumentByNameScenario: GetDocumentByNameScenario,
     val getDocumentsByProjectScenario: GetDocumentsByProjectScenario,
     val getProjectsScenario: GetProjectsScenario,
-    val findDocumentsScenario: FindDocumentsScenario
+    val findDocumentsScenario: FindDocumentsScenario,
+    val getDocumentsByNamesScenario: GetDocumentsByNamesScenario
 ) {
 
     @CrossOrigin(originPatterns = ["*"])
@@ -39,7 +40,7 @@ class DocumentController(
 
     @CrossOrigin(originPatterns = ["*"])
     @PostMapping("/download", produces = [MediaType.MULTIPART_FORM_DATA_VALUE])
-    fun viewDocument(@RequestBody request: GetDocumentFileRq): ResponseEntity<Resource> {
+    fun downloadDocumentAsAttachment(@RequestBody request: GetDocumentFileRq): ResponseEntity<Resource> {
         val result = getFileScenario.execute(request)
         val contentDisposition = result.filename.asAttachment()
         return ResponseEntity.ok()
@@ -49,7 +50,7 @@ class DocumentController(
 
     @CrossOrigin(originPatterns = ["*"])
     @GetMapping("/download/{filename}", produces = [MediaType.APPLICATION_PDF_VALUE])
-    fun viewDocument(@PathVariable filename: String): ResponseEntity<Resource> {
+    fun downloadDocumentAsInline(@PathVariable filename: String): ResponseEntity<Resource> {
         val result = getFileScenario.execute(GetDocumentFileRq().also { it.fileName=filename })
         val contentDisposition = result.filename.asInline()
         return ResponseEntity.ok()
@@ -67,6 +68,12 @@ class DocumentController(
     @GetMapping("/by-name/{name}")
     fun getDocumentByName(@PathVariable name: String): ResponseEntity<GetDocumentRs> {
         return ResponseEntity.ok(getDocumentByNameScenario.execute(name))
+    }
+
+    @CrossOrigin(originPatterns = ["*"])
+    @PostMapping("/by-names")
+    fun getDocumentByNames(@RequestBody request: GetDocumentsByNames): ResponseEntity<FindDocumentsRs> {
+        return ResponseEntity.ok(getDocumentsByNamesScenario.execute(request))
     }
 
     @CrossOrigin(originPatterns = ["*"])

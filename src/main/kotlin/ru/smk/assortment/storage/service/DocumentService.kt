@@ -34,7 +34,12 @@ class DocumentService(
                 ExampleMatcher.matching()
                     .withMatcher("name", startsWith().ignoreCase())
             )
-        ).toList()
+        )
+    }
+
+    @Transactional
+    fun getDocuments(names: List<String>): List<Document> {
+        return documentRepository.findAllByNameIn(names)
     }
 
     @Transactional

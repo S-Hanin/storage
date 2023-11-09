@@ -91,7 +91,7 @@ function DocumentsPage() {
             <Dialog fullScreen open={dialogOpen} onClose={handleDialogClose}>
                 <DialogTitle>Поиск документа</DialogTitle>
                 <DialogContent sx={{ display: 'flex', justifyContent: 'flex-start'}}>
-                    <DocumentViewer />
+                    <DocumentViewer isActive={dialogOpen}/>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleDialogClose}>Закрыть</Button>

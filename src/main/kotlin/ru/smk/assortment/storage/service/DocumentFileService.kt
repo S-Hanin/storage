@@ -1,13 +1,11 @@
 package ru.smk.assortment.storage.service
 
 import org.apache.commons.codec.digest.DigestUtils
-import org.springframework.data.domain.Example
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
 import ru.smk.assortment.storage.entity.DocumentFile
 import ru.smk.assortment.storage.repository.PartFileRepository
-import java.security.MessageDigest
 import java.util.*
 
 @Service

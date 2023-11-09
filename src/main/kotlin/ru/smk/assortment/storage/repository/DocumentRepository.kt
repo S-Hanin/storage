@@ -5,4 +5,5 @@ import ru.smk.assortment.storage.entity.Document
 
 interface DocumentRepository : JpaRepository<Document, Long> {
 
+    fun findAllByNameIn(documentNames: List<String>): List<Document>
 }

@@ -5,8 +5,15 @@ import Layout from './components/Layout';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 const theme = createTheme({
-  spacing: [0, 4, 8, 16, 32, 64],
+  spacing: [0, 4, 5, 6, 7, 8, 16, 32, 64],
   components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontSize: '14pt',
+        }
+      }
+    },
     MuiList: {
       styleOverrides: {
         root: {
